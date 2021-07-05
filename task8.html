@@ -1,0 +1,43 @@
+<head>
+	<link rel="stylesheet" href="task8.css">
+</head>
+<script>
+function lw()
+{
+var i = document.getElementById("in1").value
+var xhr = new XMLHttpRequest();
+
+xhr.open("GET", "http://192.168.99.101/cgi-bin/task8.py?x=" + i, true);
+xhr.send();
+xhr.onload= function() {
+var i = document.getElementById("in1").value
+var output = xhr.responseText;
+document.getElementById("d1").innerHTML = output;
+}
+}
+</script>
+
+<body>
+	
+<h2>
+<br/>
+<br/>
+Enter the car number : <input id = "in1" />
+</h2>
+<div class="highway"></div>
+<div class="city"></div>
+<div class="car">
+	<img src="car.png">
+</div>
+<div class="wheel">
+	<img src="wheel.png" class="back-wheel">
+	<img src="wheel.png" class="front-wheel">
+</div>
+<div id ="d1"> 
+Details of the Car will be shown Here...
+</div>
+
+<pre>
+
+<button onclick="lw()" class="submit">SUBMIT</button>
+</pre></body>
